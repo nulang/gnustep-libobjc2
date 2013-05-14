@@ -59,6 +59,7 @@ static char* copyTypeEncoding(const char *types)
 
 static const char * findParameterStart(const char *types, unsigned int index)
 {
+	types = objc_skip_argspec(types); // skip the return type
 	for (unsigned int i=0 ; i<index ; i++)
 	{
 		types = objc_skip_argspec(types);
