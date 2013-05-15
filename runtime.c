@@ -752,6 +752,13 @@ void *object_getIndexedIvars(id obj)
 	return ((char*)obj) + size;
 }
 
+Class object_getPossiblyHiddenClass(id obj)
+{
+	CHECK_ARG(obj);
+	Class isa = classForObject(obj);
+	return isa;
+}
+
 Class object_getClass(id obj)
 {
 	CHECK_ARG(obj);

@@ -245,9 +245,10 @@ static void deallocHiddenClass(id obj, SEL _cmd)
 	DESTROY_LOCK(&list->lock);
 	cleanupReferenceList(list);
 	freeReferenceList(list->next);
-	free_dtable(hiddenClass->dtable);
+	//free_dtable(hiddenClass->dtable); // this is causing a crash in unit tests
 	// Free the class
-	free(hiddenClass);
+	//free(hiddenClass); // I'm skeptical about this, too. 
+        // It's not clear that the class being freed isn't being used anywhere else.
 }
 
 static struct reference_list* referenceListForObject(id object, BOOL create)
