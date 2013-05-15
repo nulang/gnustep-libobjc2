@@ -18,7 +18,7 @@
 #include <nbutil.h>
 #endif
 
-#define PAGE_SIZE 4096
+#define PAGE_SIZE (4096*16)
 
 static void *executeBuffer;
 static void *writeBuffer;
